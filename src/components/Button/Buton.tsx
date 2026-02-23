@@ -1,4 +1,4 @@
-import type { ReactNode, ButtonHTMLAttributes, ElementType } from 'react'
+import type { ReactNode, ElementType } from 'react'
 import { ButtonContainer, IconWrapper, Spinner } from './Button.styles'
 
 export type ButtonColor =

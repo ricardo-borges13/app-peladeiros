@@ -12,11 +12,14 @@ export const theme = {
     white: '#FFFFFF',
     black: '#000000',
     secondary: '#2a2a2a',
-    // ...
+    background: {
+      global: '#F9FAFB', 
+    },
   },
-  // ...
+    fonts: {
+    body: 'Poppins, sans-serif',
+  },
 }
 
 export type Theme = typeof theme
-
 

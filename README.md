@@ -207,3 +207,81 @@ Ele foi pensado para atender todas as variações visuais e funcionais do app co
 <Button color="success" size="lg">
   Iniciar Partida
 </Button>
+
+
+## 🧱 LayoutContainer
+
+O projeto utiliza um **LayoutContainer** como base de layout para todas as páginas da aplicação.
+Ele é um **styled-component reutilizável** responsável por padronizar o espaçamento, largura e organização das telas, evitando repetição de CSS em cada página.
+
+### 🎯 Objetivos
+
+- Centralizar o conteúdo da aplicação
+- Definir uma largura máxima adequada para mobile
+- Padronizar o `padding` interno das páginas
+- Garantir consistência visual entre todas as telas
+- Facilitar manutenção (mudanças de layout em um único lugar)
+
+---
+
+### 📁 Local do arquivo
+
+src/components/LayoutContainer/LayoutContainer.styles.ts
+
+
+---
+
+### 🧩 Implementação
+
+O `LayoutContainer` é apenas um styled-component (não possui lógica React), servindo como um **wrapper de layout** para cada página:
+
+```ts
+import styled from 'styled-components'
+
+export const LayoutContainer = styled.div`
+  min-height: 100vh;
+  width: 100%;
+  max-width: 430px; /* Teto para celulares grandes */
+  margin: 0 auto;
+  padding: 16px;
+
+  display: flex;
+  flex-direction: column;
+
+  /* Ajustes para telas um pouco maiores */
+  @media (min-width: 390px) {
+    padding: 20px;
+  }
+
+  @media (min-width: 430px) {
+    padding: 24px;
+  }
+`
+```
+***Exemplo de Uso em uma página***
+```tsx
+import { LayoutContainer } from '../components/LayoutContainer/LayoutContainer.styles'
+
+export function Home() {
+  return (
+    <LayoutContainer>
+      <h1>Areninha</h1>
+      {/* Conteúdo da página */}
+    </LayoutContainer>
+  )
+}
+```
+***Conceito de Design***
+- O layout é mobile-first, pensado inicialmente para telas em torno de 360px
+**Breakpoints principais considerados:**
+- 360px → celulares menores (base do layout)
+- 390px → celulares médios
+- 430px → celulares grandes (iPhone Pro Max, etc)
+
+- Em telas maiores, o conteúdo é centralizado e não se estica demais, mantendo boa legibilidade e usabilidade
+
+***Benefícios***
+- Evita duplicação de CSS entre páginas
+- Garante consistência de layout em todo o app
+- Facilita ajustes globais de espaçamento e largura
+- Serve como base estrutural para todas as telas do PWA
