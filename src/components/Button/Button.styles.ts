@@ -1,12 +1,12 @@
-import styled, { css, keyframes } from 'styled-components'
-import type { ButtonColor, ButtonVariant, ButtonSize } from './Buton'
+import styled, { css, keyframes } from "styled-components";
+import type { ButtonColor, ButtonVariant, ButtonSize } from "./Button";
 
 interface ButtonContainerProps {
-  color: ButtonColor
-  variant: ButtonVariant
-  size: ButtonSize
-  radius: number
-  width: number
+  color: ButtonColor;
+  variant: ButtonVariant;
+  size: ButtonSize;
+  radius: number;
+  width: number;
 }
 
 const sizeStyles = {
@@ -21,92 +21,102 @@ const sizeStyles = {
   lg: css`
     padding: 20px 20px;
     font-size: 1.125rem;
-  `
-}
+  `,
+};
 
 const colorMap = (theme: any, color: ButtonColor) => {
   const map = {
     primary: {
       main: theme.colors.primary,
       dark: theme.colors.primaryDark,
-      text: theme.colors.white
+      text: theme.colors.white,
     },
     secondary: {
       main: theme.colors.secondary,
       dark: theme.colors.black,
-      text: theme.colors.white
+      text: theme.colors.white,
     },
     success: {
       main: theme.colors.success,
       dark: theme.colors.lightSuccess,
-      text: theme.colors.white
+      text: theme.colors.white,
     },
     danger: {
       main: theme.colors.errorRed,
       dark: theme.colors.error,
-      text: theme.colors.white
+      text: theme.colors.white,
     },
     warning: {
       main: theme.colors.warningYellow,
       dark: theme.colors.warningYellowDark,
-      text: theme.colors.black
+      text: theme.colors.black,
     },
     whatsapp: {
       main: theme.colors.whatsappGreen,
       dark: theme.colors.whatsappGreenDark,
-      text: theme.colors.white
+      text: theme.colors.white,
     },
-     update: {
+    update: {
       main: theme.colors.lightPurple,
       dark: theme.colors.Purple,
-      text: theme.colors.white
-    }
-  }
+      text: theme.colors.white,
+    },
+    add: {
+      main: theme.colors.black,
+      dark: theme.colors.secondary,
+      text: theme.colors.white,
+    },
+  };
 
-  return map[color]
-}
+  return map[color];
+};
 
 const variantStyles = {
   solid: (theme: any, color: ButtonColor) => {
-    const c = colorMap(theme, color)
+    const c = colorMap(theme, color);
     return css`
       background: ${c.main};
       color: ${c.text};
       border: none;
 
+
       &:hover:not(:disabled) {
         background: ${c.dark};
       }
-    `
+    `;
   },
 
-  outline: (theme: any, color: ButtonColor) => {
-    const c = colorMap(theme, color)
+  border: (theme: any, color: ButtonColor) => {
+    const c = colorMap(theme, color);
     return css`
-      background: transparent;
+      background: ${c.main}15;
       color: ${c.main};
       border: 2px solid ${c.main};
 
+
       &:hover:not(:disabled) {
-        background: ${c.main};
-        color: ${c.text};
+        background: ${c.main}25;
+        color: ${c.dark};
       }
-    `
+      &:active:not(:disabled) {
+        background: ${c.main}35;
+      }
+    `;
   },
 
-ghost: (theme: any, color: ButtonColor) => {
-  const c = colorMap(theme, color)
-  return css`
-    background: transparent;
-    color: ${c.main};
-    border: none;
+  ghost: (theme: any, color: ButtonColor) => {
+    const c = colorMap(theme, color);
+    return css`
+      background: transparent;
+      color: ${c.main};
+      border: none;
 
-    &:hover:not(:disabled) {
-      background: rgba(0, 0, 0, 0.05);
-    }
-  `
-}
-}
+      &:hover:not(:disabled) {
+        background: rgba(0, 0, 0, 0.05);
+      }
+    `;
+  },
+};
 
 export const ButtonContainer = styled.button<ButtonContainerProps>`
   display: inline-flex;
@@ -121,7 +131,10 @@ export const ButtonContainer = styled.button<ButtonContainerProps>`
   font-weight: 600;
   cursor: pointer;
 
-  transition: transform 0.08s ease, box-shadow 0.08s ease, background 0.1s ease;
+  transition:
+    transform 0.08s ease,
+    box-shadow 0.08s ease,
+    background 0.1s ease;
 
   ${({ size }) => sizeStyles[size]};
   ${({ theme, color, variant }) => variantStyles[variant](theme, color)}
@@ -135,22 +148,22 @@ export const ButtonContainer = styled.button<ButtonContainerProps>`
     cursor: not-allowed;
     transform: none;
   }
-`
+`;
 export const PrimaryActionWrapper = styled.div`
-  margin-bottom: 12px; 
-`
+  margin-bottom: 12px;
+`;
 
 export const IconWrapper = styled.span`
   display: flex;
   align-items: center;
   justify-content: center;
-`
+`;
 
 const spin = keyframes`
   to {
     transform: rotate(360deg);
   }
-`
+`;
 
 export const Spinner = styled.span`
   width: 18px;
@@ -159,4 +172,4 @@ export const Spinner = styled.span`
   border-top-color: #fff;
   border-radius: 50%;
   animation: ${spin} 0.8s linear infinite;
-`
+`;

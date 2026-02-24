@@ -11,6 +11,7 @@ type ScoreCounterProps = {
   onChange: (value: number) => void;
   min?: number;
   max?: number;
+  disabled?: boolean;
   placeholder?: ReactNode; // ex: "Gol"
 };
 
@@ -21,15 +22,19 @@ export const ScoreCounter = ({
   onChange,
   min = 0,
   max = MAX_SCORE,
+  disabled = false,
   placeholder = "Gol",
 }: ScoreCounterProps) => {
+
   const handleDecrement = () => {
+    if (disabled) return; // 🔒 bloqueia se travado
     const next = value - 1;
     if (next < min) return;
     onChange(next);
   };
 
 const handleIncrement = () => {
+  if (disabled) return; // 🔒 bloqueia se travado
   const next = value + 1;
 
   if (next > max) {
@@ -44,13 +49,13 @@ const handleIncrement = () => {
 
   return (
     <Container>
-      <ButtonMinus type="button" onClick={handleDecrement}>
+      <ButtonMinus type="button" onClick={handleDecrement} disabled={disabled}>
         –
       </ButtonMinus>
 
       <ValueBox>{showPlaceholder ? placeholder : value}</ValueBox>
 
-      <ButtonPlus type="button" onClick={handleIncrement}>
+      <ButtonPlus type="button" onClick={handleIncrement} disabled={disabled}>
         +
       </ButtonPlus>
     </Container>

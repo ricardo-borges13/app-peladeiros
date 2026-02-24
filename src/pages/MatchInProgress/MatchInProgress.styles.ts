@@ -20,3 +20,9 @@ export const TeamTitle = styled.div`
   text-align: center;
   margin-bottom: 8px;
 `
+
+export const ColumnActions  = styled.div`
+  margin-top: 8px;
+  display: flex;
+  justify-content: center;
+`;

@@ -5,7 +5,7 @@ export const theme = {
     success: '#1e7f4f',
     lightSuccess: '#2c8f5c',
     errorRed: '#ef4444',
-    warningYellow: '#d49b09',
+    warningYellow: '#F3F59A',
     warningYellowDark: '#b8860b',
     whatsappGreen: '#25d366',
     whatsappGreenDark: '#1ebe5d',
@@ -18,7 +18,7 @@ export const theme = {
       global: '#F9FAFB',
       primary: '#e5e7eb',
       secondary: '#9398a1',
-    }, 
+    },
   },
     fonts: {
     body: 'Poppins, sans-serif',

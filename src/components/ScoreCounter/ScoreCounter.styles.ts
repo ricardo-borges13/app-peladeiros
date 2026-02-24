@@ -21,6 +21,12 @@ export const ButtonMinus = styled.button`
   &:active {
     transform: scale(0.95);
   }
+
+   &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    filter: grayscale(0.3);
+  }
 `
 
 export const ButtonPlus = styled.button`
@@ -36,6 +42,12 @@ export const ButtonPlus = styled.button`
 
   &:active {
     transform: scale(0.95);
+  }
+
+   &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    filter: grayscale(0.3);
   }
 `
 

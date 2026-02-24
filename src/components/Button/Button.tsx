@@ -9,8 +9,9 @@ export type ButtonColor =
   | 'warning'
   | 'whatsapp'
   | 'update'
+  | 'add'
 
-export type ButtonVariant = 'solid' | 'outline' | 'ghost'
+export type ButtonVariant = 'solid' | 'border' | 'ghost'
 export type ButtonSize = 'sm' | 'md' | 'lg'
 
 type ButtonProps = {

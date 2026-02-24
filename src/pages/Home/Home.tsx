@@ -1,5 +1,5 @@
 import { LayoutContainer } from "../../components/LayoutContainer/LayoutContainer.sytles";
-import { Button } from "../../components/Button/Buton";
+import { Button } from "../../components/Button/Button";
 import {
   Container,
   Title,
