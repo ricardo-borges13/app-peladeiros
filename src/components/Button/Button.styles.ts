@@ -6,7 +6,7 @@ interface ButtonContainerProps {
   variant: ButtonVariant
   size: ButtonSize
   radius: number
-  fullWidth: boolean
+  width: number
 }
 
 const sizeStyles = {
@@ -15,11 +15,11 @@ const sizeStyles = {
     font-size: 0.875rem;
   `,
   md: css`
-    padding: 10px 16px;
+    padding: 12px 16px;
     font-size: 1rem;
   `,
   lg: css`
-    padding: 14px 20px;
+    padding: 20px 20px;
     font-size: 1.125rem;
   `
 }
@@ -33,7 +33,7 @@ const colorMap = (theme: any, color: ButtonColor) => {
     },
     secondary: {
       main: theme.colors.secondary,
-      dark: theme.colors.darkGray,
+      dark: theme.colors.black,
       text: theme.colors.white
     },
     success: {
@@ -54,6 +54,11 @@ const colorMap = (theme: any, color: ButtonColor) => {
     whatsapp: {
       main: theme.colors.whatsappGreen,
       dark: theme.colors.whatsappGreenDark,
+      text: theme.colors.white
+    },
+     update: {
+      main: theme.colors.lightPurple,
+      dark: theme.colors.Purple,
       text: theme.colors.white
     }
   }
@@ -108,8 +113,9 @@ export const ButtonContainer = styled.button<ButtonContainerProps>`
   align-items: center;
   justify-content: center;
   gap: 8px;
+  margin: 0 auto;
 
-  width: ${({ fullWidth }) => (fullWidth ? '100%' : 'auto')};
+  width: ${({ width }) => `${width}%`};
 
   border-radius: ${({ radius }) => `${radius}px`};
   font-weight: 600;
@@ -129,6 +135,9 @@ export const ButtonContainer = styled.button<ButtonContainerProps>`
     cursor: not-allowed;
     transform: none;
   }
+`
+export const PrimaryActionWrapper = styled.div`
+  margin-bottom: 12px; 
 `
 
 export const IconWrapper = styled.span`

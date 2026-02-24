@@ -12,9 +12,13 @@ export const theme = {
     white: '#FFFFFF',
     black: '#000000',
     secondary: '#2a2a2a',
+    lightPurple: '#98A3E9',
+    Purple: '#8b93c7',
     background: {
-      global: '#F9FAFB', 
-    },
+      global: '#F9FAFB',
+      primary: '#e5e7eb',
+      secondary: '#9398a1',
+    }, 
   },
     fonts: {
     body: 'Poppins, sans-serif',

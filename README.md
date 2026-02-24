@@ -285,3 +285,91 @@ export function Home() {
 - Garante consistência de layout em todo o app
 - Facilita ajustes globais de espaçamento e largura
 - Serve como base estrutural para todas as telas do PWA
+
+----
+
+## 🧩 Componente SegmentedControl
+
+O **SegmentedControl** é um componente reutilizável para seleção de opções em formato de botões segmentados (ex: *Novos / Veteranos / Presença* ou *Todos / Veteranos / Novos*).
+Ele é **controlado** (o estado fica na página) e aceita **configuração de cor** para o item ativo.
+
+---
+
+### 🎯 Objetivos
+
+- Reutilizar o mesmo componente em múltiplas telas
+- Evitar duplicação de lógica e estilos
+- Fornecer uma UI simples e clara para filtros/abas
+- Manter consistência visual no app
+
+---
+
+### 📁 Estrutura de arquivos
+src/components/SegmentedControl/
+SegmentedControl.tsx
+SegmentedControl.styles.ts
+
+
+---
+
+### 🧠 Conceito
+
+- O componente recebe:
+  - `options`: lista de opções (label + value)
+  - `value`: valor atualmente selecionado
+  - `onChange`: callback chamado ao trocar a opção
+  - `color`: cor do item ativo (`primary` ou `secondary`)
+- O estado **não** fica dentro do componente.
+- A página é responsável por controlar o valor selecionado.
+
+---
+
+### 🧩 API (Props)
+
+```ts
+type SegmentedOption<T extends string = string> = {
+  label: ReactNode
+  value: T
+}
+
+type SegmentedControlProps<T extends string = string> = {
+  options: SegmentedOption<T>[]
+  value: T
+  onChange: (value: T) => void
+  color?: 'primary' | 'secondary'
+  fullWidth?: boolean
+}
+```
+
+- options (obrigatório): opções exibidas
+- value (obrigatório): valor selecionado
+- onChange (obrigatório): função chamada ao clicar em uma opção
+- color (opcional): define a cor do item ativo (primary ou secondary). Padrão: primary
+- fullWidth (opcional): se true, ocupa 100% da largura. Padrão: true
+
+### Exemplo de tela
+
+```tsx
+import { useState } from 'react'
+import { SegmentedControl } from '@/components/SegmentedControl/SegmentedControl'
+
+type Tab = 'novos' | 'veteranos' | 'presenca'
+
+export const ExemploAbas = () => {
+  const [tab, setTab] = useState<Tab>('novos')
+
+  return (
+    <SegmentedControl
+      options={[
+        { label: 'Novos', value: 'novos' },
+        { label: 'Veteranos', value: 'veteranos' },
+        { label: 'Presença', value: 'presenca' },
+      ]}
+      value={tab}
+      onChange={setTab}
+      color="primary"
+    />
+  )
+}
+
+```

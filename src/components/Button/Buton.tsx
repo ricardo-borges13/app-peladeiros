@@ -8,6 +8,7 @@ export type ButtonColor =
   | 'danger'
   | 'warning'
   | 'whatsapp'
+  | 'update'
 
 export type ButtonVariant = 'solid' | 'outline' | 'ghost'
 export type ButtonSize = 'sm' | 'md' | 'lg'
@@ -19,7 +20,7 @@ type ButtonProps = {
   variant?: ButtonVariant
   size?: ButtonSize
   radius?: number
-  fullWidth?: boolean
+  width?: number
   isLoading?: boolean
   as?: ElementType
   href?: string
@@ -33,7 +34,7 @@ export function Button({
   variant = 'solid',
   size = 'md',
   radius = 8,
-  fullWidth = false,
+  width = 100,
   isLoading = false,
   disabled,
   ...props
@@ -46,7 +47,7 @@ export function Button({
       variant={variant}
       size={size}
       radius={radius}
-      fullWidth={fullWidth}
+      width={width}
       disabled={isDisabled}
       {...props}
     >
