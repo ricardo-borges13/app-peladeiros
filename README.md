@@ -373,3 +373,72 @@ export const ExemploAbas = () => {
 }
 
 ```
+-----------
+
+## ⚽ Componente ScoreCounter
+
+O **ScoreCounter** é um componente reutilizável para **contagem de gols** (ou qualquer valor numérico) usando botões de **incremento (+)** e **decremento (–)**.
+Ele é um componente **controlado**: o estado fica na página e é passado via props.
+
+---
+
+### 🎯 Objetivos
+
+- Permitir incrementar e decrementar um valor numérico
+- Impedir valores **menores que o mínimo** (padrão: 0)
+- Impedir valores **maiores que o máximo** (padrão: 20)
+- Exibir um **placeholder** (ex: `"Gol"`) quando o valor for 0
+- Proteger o layout de números exagerados (UI safeguard)
+
+---
+
+### 📁 Estrutura de arquivos
+src/components/ScoreCounter/
+ScoreCounter.tsx
+ScoreCounter.styles.ts
+
+
+
+---
+
+### 🧠 Conceito
+
+- O componente recebe:
+  - `value`: valor atual
+  - `onChange`: função para atualizar o valor
+  - `min`: valor mínimo permitido (padrão: `0`)
+  - `max`: valor máximo permitido (padrão: `20`)
+  - `placeholder`: texto exibido quando `value === 0` (padrão: `"Gol"`)
+- O componente **não** guarda estado interno.
+- A página é responsável por controlar o valor.
+
+---
+
+### 🧩 API (Props)
+
+```ts
+type ScoreCounterProps = {
+  value: number
+  onChange: (value: number) => void
+  min?: number
+  max?: number
+  placeholder?: ReactNode
+}
+```
+### Exemplo de uso
+
+```tsx
+import { useState } from 'react'
+import { ScoreCounter } from '@/components/ScoreCounter/ScoreCounter'
+
+export const ExemploPlacar = () => {
+  const [gols, setGols] = useState(0)
+
+  return (
+    <ScoreCounter
+      value={gols}
+      onChange={setGols}
+    />
+  )
+}
+```
