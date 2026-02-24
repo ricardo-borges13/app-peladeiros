@@ -10,7 +10,7 @@ import {
 } from "./MatchInProgress.styles";
 import { Button } from "../../components/Button/Button";
 import { SectionPage } from "./../../components/SectionPage/SectionPage";
-import { MatchTimer } from "./../../components/GameTimer/GameTimer";
+import { GameTimer } from "./../../components/GameTimer/GameTimer";
 import { LockToggle } from "../../components/LockToggle/LockToggle";
 
 type Player = {
@@ -76,7 +76,7 @@ export const MatchInProgress = () => {
           blueScore={totalBlue}
         />
 
-        <MatchTimer disabled={locked} />
+        <GameTimer disabled={locked} />
 
         <Columns>
           <Column $variant="yellow">

@@ -603,7 +603,7 @@ Ele controla internamente o tempo decorrido e permite **iniciar / pausar** a con
 - Mostrar o tempo da partida no formato `MM:SS`
 - Permitir iniciar e pausar a contagem
 - Permitir **bloquear o controle** quando a partida estiver travada (`disabled`)
-- Não permitir reset do tempo (regra de negócio do app)
+- Permite Resetar desde que o tempo esteja pausado
 
 ---
 

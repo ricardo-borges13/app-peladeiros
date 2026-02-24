@@ -18,4 +18,17 @@ export const ControlButton = styled.button`
   border-radius: 6px;
   border: 1px solid #ccc;
   background: white;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+`
+
+
+export const ResetButton = styled.button`
+background-color: ${({ theme }) => theme.colors.warningYellow};
+border-radius: 6px;
+border: 1px solid #ccc;
+padding: 6px 12px;
 `
