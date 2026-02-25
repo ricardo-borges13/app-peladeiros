@@ -27,3 +27,5 @@ export const theme = {
 
 export type Theme = typeof theme
 
+// background: ${({ theme }) => theme.colors.primary};
+

@@ -4,15 +4,14 @@ import { theme } from "./theme/theme";
 import { GlobalStyle } from "./assets/styles/global";
 
 
-import { MatchInProgress } from "./pages/MatchInProgress/MatchInProgress";
-
+import { NewMatch } from "./pages/NewMatch/NewMatch";
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
 
-      <MatchInProgress />
+      <NewMatch />
     </ThemeProvider>
   );
 }

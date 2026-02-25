@@ -1,0 +1,39 @@
+import styled from "styled-components";
+
+export const DivTitle = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+border-bottom: 1px solid black;
+border-top: 1px solid black;
+margin-top: 10px;
+background: ${({ theme }) => theme.colors.background.primary};
+
+`
+
+export const Columns = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 12px;
+`
+
+export const Column = styled.div<{ $variant: "yellow" | "blue" }>`
+  padding: 8px;
+  border-radius: 6px;
+
+  background: ${({ $variant }) =>
+    $variant === "yellow" ? "#F5F8B0" : "#CFE5FF"};
+`
+
+export const TeamTitle = styled.div`
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 8px;
+`
+
+export const ColumnActions  = styled.div`
+  margin-top: 8px;
+  display: flex;
+  justify-content: center;
+`;

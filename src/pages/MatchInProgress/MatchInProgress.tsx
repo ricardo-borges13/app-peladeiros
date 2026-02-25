@@ -1,7 +1,7 @@
 import { LayoutContainer } from "../../components/LayoutContainer/LayoutContainer.sytles";
 import { useState } from "react";
 import { ScoreBoard } from "../../components/ScoreBoard/ScoreBoard";
-import { PlayerGoal } from "../../components/PlayerRow/PlayerGoal";
+import { PlayerGoal } from "../../components/PlayerGoal/PlayerGoal";
 import {
   Columns,
   Column,

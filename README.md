@@ -206,6 +206,8 @@ Ele foi pensado para atender todas as variações visuais e funcionais do app co
   Iniciar Partida
 </Button>
 
+---------------------
+
 
 ## 🧱 LayoutContainer
 
@@ -587,6 +589,21 @@ type SectionPageProps = {
   footer?: ReactNode;
   children: ReactNode;
 };
+
+// Exemplo de uso:
+<SectionPage
+        title="Nova Partida"
+        onBack={() => window.history.back()}
+        footer={
+          <div>
+            <Button color="primary" size="md">
+              Iniciar Partida
+            </Button>
+          </div>
+        }
+      >
+        <h1>Children</h1>
+      </SectionPage>
 ```
 
 ---
